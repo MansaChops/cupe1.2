@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- Exists only so Netlify registers the contact form at build time. Never shown to users. -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="orderNumber" />
+      <select name="topic"><option>Order</option></select>
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>

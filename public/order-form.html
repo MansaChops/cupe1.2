@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- Exists only so Netlify registers the customer-order form at deploy time. Never shown to
+         users: the checkout submits to this path with fetch (src/lib/order-form.ts). Every field
+         sent must be listed here, in the order it should appear in notifications. -->
+    <form name="customer-order" method="POST" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="customer-order" />
+      <input type="hidden" name="subject" />
+      <input type="text" name="order-number" />
+      <input type="text" name="submitted-at" />
+      <input type="text" name="customer-name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="address" />
+      <input type="text" name="city" />
+      <input type="text" name="postcode" />
+      <input type="text" name="country" />
+      <textarea name="delivery-address"></textarea>
+      <textarea name="notes"></textarea>
+      <textarea name="order-summary"></textarea>
+      <input type="text" name="item-1" />
+      <input type="text" name="item-2" />
+      <input type="text" name="item-3" />
+      <input type="text" name="item-4" />
+      <input type="text" name="item-5" />
+      <input type="text" name="item-6" />
+      <input type="text" name="item-7" />
+      <input type="text" name="item-8" />
+      <input type="text" name="item-9" />
+      <input type="text" name="item-10" />
+      <input type="text" name="item-11" />
+      <input type="text" name="item-12" />
+      <input type="text" name="item-13" />
+      <input type="text" name="item-14" />
+      <input type="text" name="item-15" />
+      <input type="text" name="item-16" />
+      <input type="text" name="item-17" />
+      <input type="text" name="item-18" />
+      <input type="text" name="item-19" />
+      <input type="text" name="item-20" />
+      <input type="text" name="item-count" />
+      <input type="text" name="total-quantity" />
+      <input type="text" name="subtotal" />
+      <input type="text" name="delivery" />
+      <input type="text" name="total" />
+      <input type="text" name="discount" />
+      <input type="text" name="payment-status" />
+      <textarea name="items-json"></textarea>
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>
