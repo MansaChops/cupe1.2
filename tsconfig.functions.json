@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["netlify/**/*.mts", "netlify/**/*.ts", "db/**/*.ts", "src/lib/**/*.ts", "src/config/**/*.ts"],
+  "compilerOptions": { "types": ["node"] }
+}
