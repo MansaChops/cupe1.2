@@ -3,7 +3,7 @@ import { desc } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '../../db/index.js'
 import { auditLogs, orders } from '../../db/schema.js'
-import { READ_ROLES, WRITE_ROLES, requireAdmin } from '../lib/auth.js'
+import { READ_ROLES, WRITE_ROLES, ownerEmails, requireAdmin } from '../lib/auth.js'
 import { emailConfigured, ownerEmail, sendEmail } from '../lib/email.js'
 import { invoiceEmail } from '../lib/email-templates.js'
 import { getPaymentSettings, savePaymentSettings } from '../lib/settings.js'
@@ -24,7 +24,7 @@ const status = () => ({
     sheetUrl: process.env.GOOGLE_SHEET_ID ? `https://docs.google.com/spreadsheets/d/${process.env.GOOGLE_SHEET_ID}/edit` : null,
     serviceAccount: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ?? null,
   },
-  owners: (process.env.OWNER_EMAILS ?? '').split(',').map((e) => e.trim()).filter(Boolean),
+  owners: ownerEmails(),
 })
 
 /**

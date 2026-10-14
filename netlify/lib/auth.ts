@@ -9,13 +9,13 @@ export type AdminUser = { id: number; identityId: string; email: string; name: s
 export const WRITE_ROLES: Array<Role> = ['OWNER']
 export const READ_ROLES: Array<Role> = ['OWNER', 'ADMIN', 'PACKER', 'VIEWER']
 
-// Emails that are always the owner (comma-separated OWNER_EMAILS). The first time such a user signs
-// in, the `owner` role is also saved on their Identity account so it shows in the Netlify UI.
-const ownerEmails = () =>
-  (process.env.OWNER_EMAILS ?? '')
-    .split(',')
-    .map((e) => e.trim().toLowerCase())
-    .filter(Boolean)
+// Emails that are always the owner: the built-in owner plus any in OWNER_EMAILS (comma-separated).
+// The first time such a user signs in, the `owner` role is also saved on their Identity account so
+// it shows in the Netlify UI.
+const BUILT_IN_OWNERS = ['oxleyj12e@gmail.com']
+export const ownerEmails = () => [
+  ...new Set([...BUILT_IN_OWNERS, ...(process.env.OWNER_EMAILS ?? '').split(',')].map((e) => e.trim().toLowerCase()).filter(Boolean)),
+]
 
 // Netlify Identity roles (set on the user in the Netlify UI) mapped to admin roles. Users without
 // one of these roles can sign in to Identity but cannot use the admin.

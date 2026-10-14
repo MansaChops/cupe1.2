@@ -109,7 +109,7 @@ public/
   server functions or `/api/*` functions. Don't import `db/` or `netlify/lib/` from components.
 - Management APIs check the Identity user server-side (`requireAdmin`), with roles from
   `app_metadata.roles` (`owner`, `admin`, `packer`, `viewer`), and require a same-site `Origin`
-  on writes. Emails in `OWNER_EMAILS` are always owners (the role is saved back to Identity on first
+  on writes. `oxleyj12e@gmail.com` (built in, `netlify/lib/auth.ts`) and emails in `OWNER_EMAILS` are always owners (the role is saved back to Identity on first
   sign-in). **Writes are owner-only** (`WRITE_ROLES`); every other role is read-only. The `/admin`
   layout guard is for UX (it returns 404 so the area isn't advertised); the API guard is the real one.
 - The sign-in is hidden: nothing links to it. `ManagementGate` in `__root.tsx` opens
